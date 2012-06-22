@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:define name="content">
+		<h:form id="personForm">
+			<h:panelGrid columns="2">
+			
+				<h:outputText value="Nazwa" />
+				<h:inputText id="name" value="#{owocBean.owoc.name}">
+					<a4j:ajax render="messages" execute="@this" />
+				</h:inputText>
+
+				<h:outputText value="Pochodzenie" />
+				<h:inputText id="from" value="#{owocBean.owoc.from}" />
+						
+						
+				
+				<h:outputText value="Cena" />
+				<h:inputText id="price" value="#{owocBean.owoc.price}" />
+
+													
+			<h:commandLink action="confirmationOwoc.xhtml?faces-redirect=true">
+			<h:commandButton value="#{msg.personFormOKButton}"/>
+			</h:commandLink>
+				
+			</h:panelGrid>			
+		</h:form>
+
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml">
+	<ui:define name="content">
+		<h:form id="personform">
+		
+				<h:outputText value="Sprawdź poprawność danych" />
+				
+			<h:panelGrid columns="2">
+				
+				<h:outputText value="Nazwa" />
+				<h:outputText id="firstNameOutput" value="#{personBean.person.firstName}" />
+				
+				<h:outputText value="NIP" />
+				<h:outputText id="nipOutput" value="#{personBean.person.nip}" />
+				
+				<h:outputText value="Kraj" />
+				<h:outputText id="fromOutput" value="#{personBean.person.from}" />
+											
+				
+				<h:commandButton value="#{msg.personFormOKButton}"
+				action="#{personBean.addPerson}" />
+				
+				
+				
+				<h:commandLink action="addDostawca.xhtml?faces-redirect=true">
+				<h:commandButton value="Wstecz"/>
+				</h:commandLink>
+			
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>

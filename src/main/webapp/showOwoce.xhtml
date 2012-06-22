@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	template="/templates/default.xhtml">
+	
+	<ui:define name="content">
+	
+    <h:form>
+    
+     <rich:dataTable value="#{owocBean.allOwoce}" var="item">
+      <f:facet name="header">Owoce</f:facet>
+      
+      <h:column>
+        <f:facet name="header">Nazwa</f:facet>
+        #{item.name}
+      </h:column>
+      
+            
+      <h:column>
+        <f:facet name="header">Kraj pochodzenia</f:facet>
+        #{item.from}
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">Cena</f:facet>
+        #{item.price}
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">#{msg.action}</f:facet>
+        <h:commandLink value="#{msg.actionDelete}" action="#{owocBean.deleteOwoc}"/>
+      </h:column>
+      
+     </rich:dataTable>
+    </h:form>
+      
+	</ui:define>
+	
+</ui:composition>

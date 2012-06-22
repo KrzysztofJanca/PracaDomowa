@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:define name="content">
+		<h:form id="personForm">
+			<h:panelGrid columns="2">
+			
+				<h:outputText value="Nazwa" />
+				<h:inputText id="name" value="#{personBean.person.firstName}">
+					<a4j:ajax render="messages" execute="@this" />
+				</h:inputText>
+
+				<h:outputText value="NIP" />
+				<h:inputText id="nip" value="#{personBean.person.nip}" />
+												
+				
+				<h:outputText value="Kraj" />
+				<h:inputText id="from" value="#{personBean.person.from}" />
+
+									
+			<h:commandLink action="confirmation.xhtml?faces-redirect=true">
+			<h:commandButton value="#{msg.personFormOKButton}"/>
+			</h:commandLink>
+				
+			</h:panelGrid>					
+		</h:form>
+
+	</ui:define>
+</ui:composition>
